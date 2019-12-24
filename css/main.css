@@ -1,0 +1,32 @@
+body{ 
+    font: 14px 
+    sans-serif; }
+
+
+/* Make the image fully responsive */
+.carousel-inner img {
+    width: 50%;
+    height: 100%;
+}
+
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+ 
+  
+ .masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url('../img/image_2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  
+  section {
+    padding: 150px 0;
+  }
+  
