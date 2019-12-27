@@ -76,25 +76,34 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <section id="about">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-4 mx-auto">
           <h2>About us</h2>
           <p class="lead"> 
           WHO WE ARE We are a Zambian registered transportation and logistics company that goes beyond traditional transportation. 
           We invest back in the community with better educational and sustainability programs.
           </p>
+        </div>
 
+        <div class="col-lg-4 mx-auto">
+          
           <h2>Our Mission Statement</h2>
           <p class="lead">
           To go beyond traditional transportation. Our focus is on serving and empowering micro entrepreneurs
            who lack an affordable, convenient and secure transportation service to move their stock of goods and grow their businesses.
           </p>
 
+        </div>
+
+
+        <div class="col-lg-4 mx-auto">
+        
           <h2>Vision</h2>
           <p class="lead">
           To become Africa’s most trusted social good transportation and logistics company by 2030
           </p>
 
         </div>
+
       </div>
     </div>
   </section>
