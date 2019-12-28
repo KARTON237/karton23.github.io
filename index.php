@@ -31,7 +31,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a class="nav-link" href="">Home</a>
+      <a class="nav-link js-scroll-trigger" href="#index">Home</a>
     </li>
 
     <li class="nav-item">
@@ -43,9 +43,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
-    <li class="nav-item">
-      <a class="nav-link" href="admin.php">Admin</a>
-    </li>
+    
 
     <!-- Dropdown -->
     <li class="nav-item dropdown">
@@ -54,7 +52,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="logins.php">Login</a>
-        <a class="dropdown-item" href="signups.php">Sign UP</a>
+        <a class="dropdown-item" href="signups.php">Sign up</a>
         
       </div>
     </li>
@@ -63,6 +61,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
 <header class="masthead">
+<section id="index">
   <div class="container h-100">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center">
@@ -71,30 +70,41 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </div>
     </div>
   </div>
+  </section>
 </header>
+
 
   <section id="about">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-4 mx-auto">
           <h2>About us</h2>
           <p class="lead"> 
           WHO WE ARE We are a Zambian registered transportation and logistics company that goes beyond traditional transportation. 
           We invest back in the community with better educational and sustainability programs.
           </p>
+        </div>
 
+        <div class="col-lg-4 mx-auto">
+          
           <h2>Our Mission Statement</h2>
           <p class="lead">
           To go beyond traditional transportation. Our focus is on serving and empowering micro entrepreneurs
            who lack an affordable, convenient and secure transportation service to move their stock of goods and grow their businesses.
           </p>
 
+        </div>
+
+
+        <div class="col-lg-4 mx-auto">
+        
           <h2>Vision</h2>
           <p class="lead">
           To become Africa’s most trusted social good transportation and logistics company by 2030
           </p>
 
         </div>
+
       </div>
     </div>
   </section>
@@ -102,12 +112,32 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
   <section id="services" class="bg-light">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-4 mx-auto">
           <h2>Services we offer</h2>
           <p class="lead">
           Reliable Booking: Small and Medium Enterprises can book our trucks simply by calling in at +260 770 102870 from Monday through Sunday
           </p>
         </div>
+
+        <!--  -->
+        <div class="col-lg-4 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">
+          Reliable Booking: Small and Medium Enterprises can book our trucks simply by calling in at +260 770 102870 from Monday through Sunday
+          </p>
+        </div>
+
+        <!--  -->
+
+         <!--  -->
+         <div class="col-lg-4 mx-auto">
+          <h2>Services we offer</h2>
+          <p class="lead">
+          Reliable Booking: Small and Medium Enterprises can book our trucks simply by calling in at +260 770 102870 from Monday through Sunday
+          </p>
+        </div>
+
+        <!--  -->
       </div>
     </div>
   </section>
@@ -135,8 +165,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 
 
-  <script src="js/jquery/jquery.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="js/jquery/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script> -->
 
   <!-- Plugin JavaScript -->
   <script src="js/jquery-easing/jquery.easing.min.js"></script>

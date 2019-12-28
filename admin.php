@@ -6,10 +6,10 @@ include("auth.php");
 <html>
 <head>
 <meta charset="utf-8">
-<title>Admin</title>
+
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Page</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery.min.js"></script>
@@ -21,12 +21,16 @@ include("auth.php");
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Project</a>
+  <a class="navbar-brand" href="index.php">Karton Transportation</a>
 
   <!-- Links -->
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
       <a class="nav-link" href="index.php">Home</a>
+    </li>
+
+    <li class="nav-item">
+            <a class="nav-link" href="dashboard.php">Dashboard</a>
     </li>
 
     <!-- Dropdown -->
@@ -48,19 +52,27 @@ include("auth.php");
 <div class="container">
 
 <H1>Welcome <?php echo $_SESSION['username']; ?>!</h1>
-  <h2>User Table</h2>
-  <p>The </p>            
+  <h2>User Table</h2>          
   <table class="table">
     <thead>
-      <tr>
-        <th>username</th>
+    <tr class="table-success">
+      
+        <th scope="col">username</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Address</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td><?php echo $_SESSION['username']; ?></td>
-       
+        <td><?php echo $_SESSION['username']; ?></td>
+        <td><?php echo $_SESSION['username']; ?></td>
+        <td><?php echo $_SESSION['username']; ?></td>
+        <td><?php echo $_SESSION['username']; ?></td>
       </tr>
+      
       
       
     </tbody>

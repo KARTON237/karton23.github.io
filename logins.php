@@ -25,17 +25,13 @@
   </li>
 
   
-  <li class="nav-item">
-    <a class="nav-link" href="admin.php">Admin</a>
-  </li>
-
   <!-- Dropdown -->
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
       Account
     </a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="signups.php">Sign UsP</a>
+      <a class="dropdown-item" href="signups.php">Sign up</a>
     </div>
   </li>
 </ul>
