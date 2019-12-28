@@ -52,7 +52,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="logins.php">Login</a>
-        <a class="dropdown-item" href="signups.php">Sign UP</a>
+        <a class="dropdown-item" href="signups.php">Sign up</a>
         
       </div>
     </li>
