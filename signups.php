@@ -1,52 +1,4 @@
-<?php
 
-if(isset($_POST['username'])){
-    $firstname = $_POST['username'];
-  }
-
-if(isset($_POST['firstname'])){
-  $firstname = $_POST['firstname'];
-}
-
-if(isset($_POST['lastname'])){
-  $lastname = $_POST['lastname'];
-}
-
-if(isset($_POST['phonenumber'])){
-  $phonenumber = $_POST['phonenumber'];
-}
-
-if(isset($_POST['address'])){
-  $address = $_POST['address'];
-}
-
-if(isset($_POST['password'])){
-    $address = $_POST['password'];
-  }
-
-if(!empty($username) ||  !empty($firstname)|| !empty($lastname) || !empty($phonenumber) || !empty($address) || !empty($password)){
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbName = "kartondb";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password,$dbName);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}else{
-  $INSERT = "INSERT into users(username,firstname,lastname,phonenumber,address,password) values(?,?, ?, ?, ?,?)";
-  $stmt = $conn->prepare($INSERT);
-  $stmt->bind_param("ssss",$username,$firstname, $lastname, $phonenumber, $address, $password);
-  $stmt->execute();
-  header('Location: admin.php');
-}
-}
-
-?>  
 
 
 <!DOCTYPE html>
@@ -102,7 +54,7 @@ if (!$conn) {
                 <p>Please fill this form to create an account.</p>
             </div>
             <div class="card-body">
-                <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="" method="POST">
+                <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="insert.php" method="POST">
                     <div class="form-group ">
             
                         <label for="username">Username:</label>
@@ -123,6 +75,12 @@ if (!$conn) {
                     </div>
                     <div class="form-group ">
             
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control form-control-lg rounded-0" name="email" id="email" required="" >
+                        <div class="invalid-feedback">Oops, you missed the Email.</div>
+                    </div>
+                    <div class="form-group ">
+            
                         <label for="phonenumber">Phone number:</label>
                         <input type="number" class="form-control form-control-lg rounded-0" name="phonenumber" id="phonenumber" required="" >
                         <div class="invalid-feedback">Oops, you missed the Phone number.</div>
@@ -139,11 +97,6 @@ if (!$conn) {
                         <div class="invalid-feedback">Enter your password too!</div>
                     </div>
 
-                    <div class="form-group ">
-                        <label>Confirm Password:</label>
-                        <input type="password" class="form-control form-control-lg rounded-0" name="password" id="password" required="">
-                        <div class="invalid-feedback">Confirm password too!</div>
-                    </div>
                     <div>
                         
                     </div>

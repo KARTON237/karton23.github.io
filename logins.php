@@ -58,7 +58,7 @@ and password='".md5($password)."'";
         if($rows==1){
      $_SESSION['username'] = $username;
             // Redirect user to index.php
-     header("Location: index.php");
+            header('Location: admin.php');
          }else{
  echo "";
  }
