@@ -1,7 +1,3 @@
-<?php
-require('config.php');
-include("auth.php");
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,32 +47,50 @@ include("auth.php");
 
 <div class="container">
 
-<H1>Welcome <?php echo $_SESSION['username']; ?>!</h1>
+<H1>Welcome </h1>
   <h2>User Table</h2>          
-  <table class="table">
-    <thead>
-    <tr class="table-success">
-      
-        <th scope="col">username</th>
-        <th scope="col">First name</th>
-        <th scope="col">Last name</th>
-        <th scope="col">Phone number</th>
-        <th scope="col">Address</th>
+  <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbName = "kartondb";
+
+$conn = mysqli_connect($servername, $username, $password, $dbName);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT firstname, lastname, phonenumber, address FROM kartontransport";
+$result = mysqli_query($conn, $sql);
+
+
+if ($result->num_rows > 0) {
+    echo "<table class='table'>
+    <thead class='thead-dark'>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Address</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td><?php echo $_SESSION['username']; ?></td>
-        <td><?php echo $_SESSION['username']; ?></td>
-        <td><?php echo $_SESSION['username']; ?></td>
-        <td><?php echo $_SESSION['username']; ?></td>
-        <td><?php echo $_SESSION['username']; ?></td>
-      </tr>
-      
-      
-      
-    </tbody>
-  </table>
+    <tbody>";
+
+
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["firstname"]."</td><td>".$row["lastname"]."</td><td>".$row["phonenumber"]."</td><td>".$row["address"]."</td></tr>";
+    }
+
+
+    echo "</tbody></table>";
+
+} else {
+    echo "0 results";
+}
+$conn->close();
+?> 
 </div>
 
 </body>
