@@ -1,7 +1,44 @@
 <?php
-require('config.php');
-include("auth.php");
-?>
+
+if(isset($_POST['firstname'])){
+  $firstname = $_POST['firstname'];
+}
+
+if(isset($_POST['lastname'])){
+  $lastname = $_POST['lastname'];
+}
+
+if(isset($_POST['phonenumber'])){
+  $phonenumber = $_POST['phonenumber'];
+}
+
+if(isset($_POST['address'])){
+  $address = $_POST['address'];
+}
+
+if(!empty($firstname)|| !empty($lastname) || !empty($phonenumber) || !empty($address)){
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbName = "kartondb";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$dbName);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}else{
+  $INSERT = "INSERT into kartontransport(firstname,lastname,phonenumber,address) values(?, ?, ?, ?)";
+  $stmt = $conn->prepare($INSERT);
+  $stmt->bind_param("ssss",$firstname, $lastname, $phonenumber, $address);
+  $stmt->execute();
+  header('Location: admin.php');
+}
+}
+
+?> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,38 +87,38 @@ include("auth.php");
 
 
 <div class="container">
-<!-- form card Sign up -->
+<!-- form card Dashboard -->
 <div class="card rounded shadow shadow-sm">
                         <div class="card-header">
-                            <h3 class="mb-0">Users</h3>
+                            <h3 class="mb-0">Karton Transportation Registration</h3>
                         </div>
                         <div class="card-body">
                             <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="" method="POST">
                                 
                                 <div class="form-group ">
                         
-                                    <label for="uname1">First name:</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="" >
+                                    <label for="firstname">First name:</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="firstname" id="firstname" required="" >
                                     <div class="invalid-feedback">Oops, you missed the First name.</div>
                                 </div>
                                 <div class="form-group ">
                         
-                                    <label for="uname1">Last name:</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="" >
+                                    <label for="lastname">Last name:</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="lastname" id="lastname" required="" >
                                     <div class="invalid-feedback">Oops, you missed the Last name.</div>
                                 </div>
                                 <div class="form-group ">
                         
-                                    <label for="uname1">Phone number:</label>
-                                    <input type="number" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="" >
+                                    <label for="phone">Phone number:</label>
+                                    <input type="number" class="form-control form-control-lg rounded-0" name="phonenumber" id="phonenumber" required="" >
                                     <div class="invalid-feedback">Oops, you missed the Phone number.</div>
                                 </div>
 
 
                                 <div class="form-group ">
                         
-                                    <label for="uname1">Address:</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="" >
+                                    <label for="address">Address:</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="address" id="address" required="" >
                                     <div class="invalid-feedback">Oops, you missed the Phone number.</div>
                                 </div>
                                

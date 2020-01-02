@@ -51,7 +51,7 @@ if (isset($_POST['username'])){
  $password = stripslashes($_REQUEST['password']);
  $password = mysqli_real_escape_string($con,$password);
  //Checking is user existing in the database or not
-        $query = "SELECT * FROM `users` WHERE username='$username'
+        $query = "SELECT * FROM 'users' WHERE username='$username'
 and password='".md5($password)."'";
  $result = mysqli_query($con,$query) or die(mysql_error());
  $rows = mysqli_num_rows($result);
@@ -74,20 +74,20 @@ and password='".md5($password)."'";
                         <div class="card-body">
                             <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="" method="POST">
                                 <div class="form-group ">
-                                    <label for="uname1">Username</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="" >
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="" >
                                     <div class="invalid-feedback">Oops, you missed this one.</div>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password">
+                                    <input type="password" class="form-control form-control-lg rounded-0" name="password" id="pwd1" required="">
                                     <div class="invalid-feedback">Enter your password too!</div>
                                 </div>
                                 <div>
                                    
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
-                                <p>Don't have an account? <a href="signups.php">Sign up now</a>.</p>
+                                <p>Don't have an account <a href="signups.php">Sign up now</a>.</p>
                             </form>
                         </div>
                         <!--/card-block-->
