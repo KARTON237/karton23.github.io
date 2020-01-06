@@ -38,32 +38,6 @@
 </nav>
 <br>
 
-
-<?php
-require('config.php');
-session_start();
-// If form submitted, insert values into the database.
-if (isset($_POST['username'])){
-        // removes backslashes
- $username = stripslashes($_REQUEST['username']);
-        //escapes special characters in a string
- $username = mysqli_real_escape_string($con,$username);
- $password = stripslashes($_REQUEST['password']);
- $password = mysqli_real_escape_string($con,$password);
- //Checking is user existing in the database or not
-        $query = "SELECT * FROM 'users' WHERE username='$username'
-and password='".md5($password)."'";
- $result = mysqli_query($con,$query) or die(mysql_error());
- $rows = mysqli_num_rows($result);
-        if($rows==1){
-     $_SESSION['username'] = $username;
-            // Redirect user to index.php
-            header('Location: admin.php');
-         }else{
- echo "";
- }
-    }else{
-?>
 <div class="container">
 
 <!-- form card login -->
@@ -72,15 +46,15 @@ and password='".md5($password)."'";
                             <h3 class="mb-0">Login</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="" method="POST">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" action="connect.php" method="POST">
                                 <div class="form-group ">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="username" id="username" required="" >
-                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control form-control-lg rounded-0" name="email" id="email" required="" >
+                                    <div class="invalid-feedback">Enter your missing Email.</div>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" name="password" id="pwd1" required="">
+                                    <input type="password" class="form-control form-control-lg rounded-0" name="password"  required="">
                                     <div class="invalid-feedback">Enter your password too!</div>
                                 </div>
                                 <div>
@@ -94,6 +68,6 @@ and password='".md5($password)."'";
                     </div>
                     <!-- /form card login -->
 </div>  
-<?php } ?>
+
 </body>
 </html>
